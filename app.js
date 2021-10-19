@@ -96,8 +96,12 @@ questions.forEach(el => {
         alert("Mauvaise réponse")
     }
 });
+
+//Cas ou on aurait une bonne réponse
 if (nbrReponse <= 1) {
     alert(`Vous avez ${nbrReponse} / ${questions.length} réponse`)
-} else {
+}
+//Cas de plus d'une réponse
+else {
     alert(`Vous avez ${nbrReponse} / ${questions.length} réponses`)
 }
