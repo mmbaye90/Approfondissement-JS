@@ -40,36 +40,36 @@ promesseNews.then(res => {
 
 
 //Switch (Exemple)
-let voitures = prompt("Veuillez choir la marque de voiture (Peugeo,Bmw,Twingo)").toLowerCase();
+// let voitures = prompt("Veuillez choir la marque de voiture (Peugeo,Bmw,Twingo)").toLowerCase();
 
-let km = prompt("Combien de km souhaiterez-vous faire ?");
+// let km = prompt("Combien de km souhaiterez-vous faire ?");
 
-let prix = {
-    peugeot: 0.6,
-    bmw: 0.7,
-    twingot: 0.8
-};
-switch (voitures) {
-    case "peugeot":
-        {
-            alert("le prix est de : " + prix.peugeot * km + "€")
-        }
-        break;
-    case "bmw":
-        {
-            alert("le prix est de : " + prix.bmw * km + "€")
-        }
-        break;
-    case "twingot":
-        {
-            alert("le prix est de : " + prix.twingot * km + "€")
-        }
-        break;
-    default:
-        {
-            alert("Veuillez saisir une marque mentionnez ci dessus")
-        }
-}
+// let prix = {
+//     peugeot: 0.6,
+//     bmw: 0.7,
+//     twingot: 0.8
+// };
+// switch (voitures) {
+//     case "peugeot":
+//         {
+//             alert("le prix est de : " + prix.peugeot * km + "€")
+//         }
+//         break;
+//     case "bmw":
+//         {
+//             alert("le prix est de : " + prix.bmw * km + "€")
+//         }
+//         break;
+//     case "twingot":
+//         {
+//             alert("le prix est de : " + prix.twingot * km + "€")
+//         }
+//         break;
+//     default:
+//         {
+//             alert("Veuillez saisir une marque mentionnez ci dessus")
+//         }
+// }
 
 
 // const questions = [{
@@ -105,3 +105,55 @@ switch (voitures) {
 // else {
 //     alert(`Vous avez ${nbrReponse} / ${questions.length} réponses`)
 // }
+console.log(innerWidth)
+console.log(document.documentURI + "le chemain de luri");
+const title = document.getElementById("title");
+//Récupére uniqment le texte
+console.log(title.innerText)
+
+console.log(title.textContent += "new tittle")
+
+let citation = document.getElementsByClassName("citation")
+console.log(citation[1])
+
+//Récupération par le nom de la balise
+let para = document.getElementsByTagName('p')
+console.log(para[0].innerText);
+
+let query = document.querySelectorAll(".citation")
+console.log(query[1].innerText)
+
+const a = document.querySelector("a")
+console.log(a.getAttribute("href"))
+a.setAttribute('href', 'https://www.weformyou.fr/')
+
+
+let p1 = document.querySelector("p");
+
+//Ajouter une classe css à un element html
+p1.classList.add("fondVert")
+    //Supprimer une classe css à un element html
+p1.classList.remove("fondVert")
+
+//Séléction des élements paires
+const elmtLi = document.querySelectorAll("ul li:nth-child(even)");
+//Ajout d'une classe à ces elmts
+elmtLi.forEach(coul => {
+    coul.classList.add("fondVert")
+})
+
+//Selection des classes impaires
+const elmtLiImp = document.querySelectorAll("ul li:nth-child(odd)");
+elmtLiImp.forEach(x => {
+    x.classList.add("chapitre")
+})
+
+//Tester la présence d'une classe avec classList.contains
+if (document.querySelector("li:nth-child(2)").classList.contains("fondVert")) {
+    console.log("la classe verte est affectée")
+}
+//Changer la classe d'une balise Html avec toggle (il effectue l'opération inverse que contient la balise)
+document.querySelector("p").classList.toggle("fondVert")
+
+//Déplacer un element de HTML avec appenchild
+document.querySelector("p").appendChild(document.querySelector("#title"))
