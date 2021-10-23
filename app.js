@@ -182,17 +182,37 @@
 // })
 
 //--------------------------- Systeme d'onglets ----------------------------
-const onglet = document.querySelectorAll("ul li");
-onglet.forEach(el => {
-    el.addEventListener("click", function() {
-        const numTitle = this.getAttribute("data-title")
-            //On masque la div n1
-        document.querySelector("#container > div.active").classList.remove("active")
-            //On affiche à la place la div n2
-        document.querySelector("#texte" + numTitle).classList.add("active")
-            //On enleve le style par défaut de l'onglet n1
-        document.querySelector("#container ul li.active").classList.remove("active")
-            //On remet le style à l'onglet cliqué
-        this.classList.add("active")
-    })
+// const onglet = document.querySelectorAll("ul li");
+// onglet.forEach(el => {
+//     el.addEventListener("click", function() {
+//         const numTitle = this.getAttribute("data-title")
+//             //On masque la div n1
+//         document.querySelector("#container > div.active").classList.remove("active")
+//             //On affiche à la place la div n2
+//         document.querySelector("#texte" + numTitle).classList.add("active")
+//             //On enleve le style par défaut de l'onglet n1
+//         document.querySelector("#container ul li.active").classList.remove("active")
+//             //On remet le style à l'onglet cliqué
+//         this.classList.add("active")
+//     })
+// })
+
+//------------------------------- Le temps en JS ------------------------------------
+const horloge = () => {
+    const date = new Date();
+    let heures = date.getHours()
+    let minutes = date.getMinutes()
+    let secondes = date.getSeconds()
+
+    if (secondes < 10) {
+        secondes = "0" + secondes
+    }
+    if (minutes < 10) {
+        minutes = "0" + minutes
+    }
+    let affichage = `<p><strong>${heures} : ${minutes} : ${secondes} </strong></p>`;
+    document.querySelector(".temps").innerHTML = affichage
+}
+setInterval(function() {
+    horloge()
 })
