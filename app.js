@@ -164,17 +164,35 @@
 //     console.log(this)
 // })
 
-const check = `<span class="choix"><i class="fas fa-check"></i></span>`;
 
-const li = document.querySelectorAll("ul li");
+//------------------------------- Check List -----------------------------
+// const check = `<span class="choix"><i class="fas fa-check"></i></span>`;
 
-li.forEach(el => {
+// const li = document.querySelectorAll("ul li");
+
+// li.forEach(el => {
+//     el.addEventListener("click", function() {
+//         this.classList.toggle("active")
+//         if (this.classList.contains("active")) {
+//             this.innerHTML = this.innerText + check
+//         } else {
+//             this.innerHTML = this.innerText
+//         }
+//     })
+// })
+
+//--------------------------- Systeme d'onglets ----------------------------
+const onglet = document.querySelectorAll("ul li");
+onglet.forEach(el => {
     el.addEventListener("click", function() {
-        this.classList.toggle("active")
-        if (this.classList.contains("active")) {
-            this.innerHTML = this.innerText + check
-        } else {
-            this.innerHTML = this.innerText
-        }
+        const numTitle = this.getAttribute("data-title")
+            //On masque la div n1
+        document.querySelector("#container > div.active").classList.remove("active")
+            //On affiche à la place la div n2
+        document.querySelector("#texte" + numTitle).classList.add("active")
+            //On enleve le style par défaut de l'onglet n1
+        document.querySelector("#container ul li.active").classList.remove("active")
+            //On remet le style à l'onglet cliqué
+        this.classList.add("active")
     })
 })

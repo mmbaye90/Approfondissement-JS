@@ -19,24 +19,79 @@
         .chapitre {
             background-color: aqua;
         } */
-        
-        .gris {
+        /* .gris {
             background-color: gray;
+        } */
+        
+        body {
+            background-color: #f1f1f1;
+        }
+        
+        #container {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            max-width: 600px;
+            margin: auto;
+        }
+        
+        #container ul {
+            display: flex;
+            list-style-type: none;
+        }
+        
+        #container ul li {
+            display: inline-block;
+            background-color: #d9d9d9;
+            padding: 0.5rem;
+            margin: 0 1rem;
+            transition: all 0.5 ease-in-out;
+        }
+        
+        #container ul li.active,
+        #container ul li:hover {
+            background-color: #a8a8a8;
+            color: white;
+            cursor: pointer;
+        }
+        
+        #container>div {
+            background-color: white;
+            padding: 1 2rem;
+            display: none;
+        }
+        
+        #container>div.active {
+            display: block;
         }
     </style>
 </head>
 
 <body>
-    <h1 id="title">Liste des courses</h1>
-    <ul>
-        <li>Fraise </li>
-        <li>Pomme</li>
-        <li>Banane</li>
-        <li>Tomate</li>
-        <li>Cerise</li>
-        <li>Citron</li>
-        <li>Piment</li>
-    </ul>
+    <!-- <h1 id="title">Liste des courses</h1> -->
+    <div id="container">
+        <ul class="titres">
+            <li data-title="0" class="active">Texte 1</li>
+            <li data-title="1">Texte 2</li>
+            <li data-title="2">Texte 3</li>
+        </ul>
+        <div id="texte0" class="active">
+            <p> Texte1 : Lorem ipsum dolor <strong>Mamadou</strong> sit amet consectetur adipisicing elit. Fugit molestias qui debitis alias, molestiae architecto, quod odit praesentium similique provident nesciunt facere! Sequi exercitationem, ducimus facere
+                laborum reprehenderit voluptate laboriosam!
+            </p>
+        </div>
+        <div id="texte1">
+            <p> Texte 2 : Lorem ipsum dolor <strong>Bineta</strong> sit amet consectetur adipisicing elit. Fugit molestias qui debitis alias, molestiae architecto, quod odit praesentium similique provident nesciunt facere! Sequi exercitationem, ducimus facere
+                laborum reprehenderit voluptate laboriosam!
+            </p>
+        </div>
+        <div id="texte2">
+            <p>
+                Texte 3: Lorem ipsum dolor <strong>Soumaya</strong> sit amet consectetur adipisicing elit. Fugit molestias qui debitis alias, molestiae architecto, quod odit praesentium similique provident nesciunt facere! Sequi exercitationem, ducimus
+                facere laborum reprehenderit voluptate laboriosam!
+            </p>
+        </div>
+    </div>
 
     <!-- <table>
         <thead>
