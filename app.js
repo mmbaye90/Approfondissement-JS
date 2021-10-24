@@ -198,21 +198,21 @@
 // })
 
 //------------------------------- Le temps en JS ------------------------------------
-const horloge = () => {
-    const date = new Date();
-    let heures = date.getHours()
-    let minutes = date.getMinutes()
-    let secondes = date.getSeconds()
+// const horloge = () => {
+//     const date = new Date();
+//     let heures = date.getHours()
+//     let minutes = date.getMinutes()
+//     let secondes = date.getSeconds()
 
-    if (secondes < 10) {
-        secondes = "0" + secondes
-    }
-    if (minutes < 10) {
-        minutes = "0" + minutes
-    }
-    let affichage = `<p><strong>${heures} : ${minutes} : ${secondes} </strong></p>`;
-    document.querySelector(".temps").innerHTML = affichage
-}
-setInterval(function() {
-    horloge()
-})
+//     if (secondes < 10) {
+//         secondes = "0" + secondes
+//     }
+//     if (minutes < 10) {
+//         minutes = "0" + minutes
+//     }
+//     let affichage = `<p><strong>${heures} : ${minutes} : ${secondes} </strong></p>`;
+//     document.querySelector(".temps").innerHTML = affichage
+// }
+// setInterval(function() {
+//     horloge()
+// })
