@@ -10,7 +10,8 @@
     margin-left: 3rem;
 } */
 
-#contenair {
+
+/* #contenair {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -54,4 +55,36 @@
 #ajout img.show {
     opacity: 1;
     transition: opacity 0.6 ease-in-out;
+} */
+
+
+/* ------------------------------------------- Control formulaire ---------------------------------- */
+
+.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.form .form-group {
+    width: 95vh;
+}
+
+.form .form-group .form-control {
+    width: 100%;
+    padding: 0.2rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.form .form-group .submit {
+    display: block;
+    width: 100%;
+    padding: 0.2rem;
+    border: none;
+    background-color: rgba(0, 132, 255, 0.472);
+    cursor: pointer;
+    color: white;
+    margin-top: 0.5rem;
 }

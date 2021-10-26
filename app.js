@@ -218,77 +218,79 @@
 // })
 //----------------------------------Galerie photos dynamique ---------------------------------------
 //On récupère toutes les photos
-const photos = document.querySelectorAll(".contener-photo img")
+// const photos = document.querySelectorAll(".contener-photo img")
 
 
-//On masque toutes les autres images et on affichage la premiere d'ou i = 1
-for (let i = 1; i < photos.length; i++) {
+// //On masque toutes les autres images et on affichage la premiere d'ou i = 1
+// for (let i = 1; i < photos.length; i++) {
 
-    photos[i].classList.add("hidden");
-}
-//On récupére le click de la fléche avant
-const btnAvant = document.getElementById("play-right");
+//     photos[i].classList.add("hidden");
+// }
+// //On récupére le click de la fléche avant
+// const btnAvant = document.getElementById("play-right");
 
-//J'unitialise une variable à 0 pour ensuite incrémenter à chaque cliqe
-let imgActive = 0;
-photos[imgActive].classList.add("show")
-    //on écoute le clique du btn
-btnAvant.addEventListener("click", function() {
-    next();
-})
+// //J'unitialise une variable à 0 pour ensuite incrémenter à chaque cliqe
+// let imgActive = 0;
+// photos[imgActive].classList.add("show")
+//     //on écoute le clique du btn
+// btnAvant.addEventListener("click", function() {
+//     next();
+// })
 
-const next = function() {
-    photos[imgActive].classList.remove("show")
-    photos[imgActive].classList.add("hidden");
-    imgActive += 1;
-    if (imgActive >= photos.length) {
-        imgActive = 0
-    }
-    photos[imgActive].classList.remove("hidden")
-    setTimeout(() => { photos[imgActive].classList.add("show") }, 300)
-}
+// const next = function() {
+//     photos[imgActive].classList.remove("show")
+//     photos[imgActive].classList.add("hidden");
+//     imgActive += 1;
+//     if (imgActive >= photos.length) {
+//         imgActive = 0
+//     }
+//     photos[imgActive].classList.remove("hidden")
+//     setTimeout(() => { photos[imgActive].classList.add("show") }, 300)
+// }
 
 
-//Quand on appuie sur le bouton arriere
+// //Quand on appuie sur le bouton arriere
 
-const btnArriere = document.getElementById("play-left");
+// const btnArriere = document.getElementById("play-left");
 
-photos[imgActive].classList.add("show")
-    //on écoute le clique du btn
-btnArriere.addEventListener("click", function() {
-    retour();
-})
+// photos[imgActive].classList.add("show")
+//     //on écoute le clique du btn
+// btnArriere.addEventListener("click", function() {
+//     retour();
+// })
 
-const retour = function() {
-    photos[imgActive].classList.remove("show")
-    photos[imgActive].classList.add("hidden");
-    imgActive -= 1;
-    if (imgActive < 0) {
-        imgActive = photos.length - 1;
-    }
-    photos[imgActive].classList.remove("hidden")
-    setTimeout(() => { photos[imgActive].classList.add("show") }, 300)
-}
+// const retour = function() {
+//     photos[imgActive].classList.remove("show")
+//     photos[imgActive].classList.add("hidden");
+//     imgActive -= 1;
+//     if (imgActive < 0) {
+//         imgActive = photos.length - 1;
+//     }
+//     photos[imgActive].classList.remove("hidden")
+//     setTimeout(() => { photos[imgActive].classList.add("show") }, 300)
+// }
 
-//Clic sur le bouton play 
-let interval = "";
-//Ecoute du clic bouton play avec notre fonction next avec une intervale de temps de 2s
-document.getElementById("play").addEventListener("click", function() {
-        interval = setInterval(next, 1000)
-    })
-    //Ecoute du btn pause et on efface l'interval de temps
-document.getElementById("pause").addEventListener("click", function() {
-    clearInterval(interval)
-})
+// //Clic sur le bouton play 
+// let interval = "";
+// //Ecoute du clic bouton play avec notre fonction next avec une intervale de temps de 2s
+// document.getElementById("play").addEventListener("click", function() {
+//         interval = setInterval(next, 1000)
+//     })
+//     //Ecoute du btn pause et on efface l'interval de temps
+// document.getElementById("pause").addEventListener("click", function() {
+//     clearInterval(interval)
+// })
 
-//Avec les touches du clavier
-window.addEventListener("keydown", function(e) {
-    if (e.key == "ArrowRight") {
-        next()
-    }
-})
-window.addEventListener("keydown", function(e) {
-    if (e.key == "ArrowLeft") {
-        retour()
-    }
-})
+// //Avec les touches du clavier
+// window.addEventListener("keydown", function(e) {
+//     if (e.key == "ArrowRight") {
+//         next()
+//     }
+// })
+// window.addEventListener("keydown", function(e) {
+//     if (e.key == "ArrowLeft") {
+//         retour()
+//     }
+// })
+
+// ------------------------------------------- RegExp -------------------------------------------------------------------
