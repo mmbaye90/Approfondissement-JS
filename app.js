@@ -295,21 +295,70 @@
 
 // ------------------------------------------- RegExp -------------------------------------------------------------------
 const form = document.getElementById("loginform");
-
+// ------- control MAil --------
 form.email.addEventListener("change", function() {
     validEmail(this)
 })
 let smal = form.email.nextElementSibling;
 
 const validEmail = function(inputEmail) {
-    let regexEmail = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    if (regexEmail.test(inputEmail.value)) {
-        smal.classList.add("validate");
-        let valid = `<i class="fas fa-check-circle"></i>`
-        smal.innerHTML = valid
+        let regexEmail = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        if (regexEmail.test(inputEmail.value)) {
+            smal.classList.remove("refus");
+            smal.classList.add("validate");
+            let valid = `<i class="fas fa-check-circle"></i>`
+            smal.innerHTML = valid
+            return true
+        } else {
+            smal.classList.add("validate");
+            smal.classList.add("refus");
+            let refus = `<i class="fas fa-check-circle"></i>`
+            smal.innerHTML = refus
+            return false
+        }
+    }
+    //  ------- control Password --------
+form.password.addEventListener("change", function() {
+    validPassword(this)
+})
+
+const validPassword = function(inputPassword) {
+    let msg
+    let val = false;
+    //Au moins 3 caracteres
+    if (inputPassword.value.length < 3) {
+        msg = "Le mot de passe doit contenir au moins 3 caracteres"
+    }
+    //Au mos 1 Maj
+    else if (!/[A-Z]/.test(inputPassword.value)) {
+        msg = "Le mot de passe doit contenir au moins 1 maj"
+
+    }
+    //Au Moins 1 miniscule
+    else if (!/[a-z]/.test(inputPassword.value)) {
+        msg = "Le mot de passe doit contenir au moins 1 min"
+
+    }
+    //Au moins un chiffre
+    else if (!/[0-9]/.test(inputPassword.value)) {
+        msg = "Le mot de passe doit contenir au moins 1 chiffre"
+
     } else {
-        smal.classList.add("refus");
-        let refus = `<i class="fas fa-check-circle"></i>`
-        smal.innerHTML = refus
+        msg = "Le mot de passe est valide"
+        val = true
+
+    }
+    let smalPassword = form.password.nextElementSibling;
+    let valid = `<i class="fas fa-check-circle"></i>`
+    if (val) {
+        smalPassword.innerHTML = valid
+        smalPassword.classList.remove("mdpInvalid")
+        smalPassword.classList.add("mdpvalid")
+        return true
+    } else {
+        smalPassword.innerHTML = msg
+        smalPassword.classList.remove("mdpvalid")
+        smalPassword.classList.add("mdpInvalid")
+        return false
     }
 }
