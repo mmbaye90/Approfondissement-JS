@@ -294,3 +294,22 @@
 // })
 
 // ------------------------------------------- RegExp -------------------------------------------------------------------
+const form = document.getElementById("loginform");
+
+form.email.addEventListener("change", function() {
+    validEmail(this)
+})
+let smal = form.email.nextElementSibling;
+
+const validEmail = function(inputEmail) {
+    let regexEmail = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    if (regexEmail.test(inputEmail.value)) {
+        smal.classList.add("validate");
+        let valid = `<i class="fas fa-check-circle"></i>`
+        smal.innerHTML = valid
+    } else {
+        smal.classList.add("refus");
+        let refus = `<i class="fas fa-check-circle"></i>`
+        smal.innerHTML = refus
+    }
+}

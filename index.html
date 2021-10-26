@@ -64,25 +64,37 @@
         #container>div.active {
             display: block;
         } */
+        
+        .form #loginform .validate {
+            color: rgba(46, 255, 9, 0.931);
+        }
+        
+        .form #loginform .refus {
+            color: rgb(255, 0, 0);
+        }
     </style>
 </head>
 
 <body>
     <div class="form">
         <h1>Control Formulaire</h1>
-        <form action="" method="">
+        <form action="" method="" id="loginform">
             <!-- ---- Email ------- -->
             <div class="form-group">
                 <label for="email">Email</label>
+
                 <input type="text" name="email" class="form-control">
                 <small></small>
+
             </div>
 
             <!-- --------- Password ------------->
             <div class="form-group">
                 <label for="password">Password</label>
+
                 <input type="text" name="password" class="form-control">
                 <small></small>
+
             </div>
             <div class="form-group">
                 <button type="submit" class="submit">Connexion</button>
