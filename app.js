@@ -323,42 +323,52 @@ form.password.addEventListener("change", function() {
 })
 
 const validPassword = function(inputPassword) {
-    let msg
-    let val = false;
-    //Au moins 3 caracteres
-    if (inputPassword.value.length < 3) {
-        msg = "Le mot de passe doit contenir au moins 3 caracteres"
-    }
-    //Au mos 1 Maj
-    else if (!/[A-Z]/.test(inputPassword.value)) {
-        msg = "Le mot de passe doit contenir au moins 1 maj"
+        let msg
+        let val = false;
+        //Au moins 3 caracteres
+        if (inputPassword.value.length < 3) {
+            msg = "Le mot de passe doit contenir au moins 3 caracteres"
+        }
+        //Au mos 1 Maj
+        else if (!/[A-Z]/.test(inputPassword.value)) {
+            msg = "Le mot de passe doit contenir au moins 1 maj"
 
-    }
-    //Au Moins 1 miniscule
-    else if (!/[a-z]/.test(inputPassword.value)) {
-        msg = "Le mot de passe doit contenir au moins 1 min"
+        }
+        //Au Moins 1 miniscule
+        else if (!/[a-z]/.test(inputPassword.value)) {
+            msg = "Le mot de passe doit contenir au moins 1 min"
 
-    }
-    //Au moins un chiffre
-    else if (!/[0-9]/.test(inputPassword.value)) {
-        msg = "Le mot de passe doit contenir au moins 1 chiffre"
+        }
+        //Au moins un chiffre
+        else if (!/[0-9]/.test(inputPassword.value)) {
+            msg = "Le mot de passe doit contenir au moins 1 chiffre"
 
+        } else {
+            msg = "Le mot de passe est valide"
+            val = true
+
+        }
+        let smalPassword = form.password.nextElementSibling;
+        let valid = `<i class="fas fa-check-circle"></i>`
+        if (val) {
+            smalPassword.innerHTML = valid
+            smalPassword.classList.remove("mdpInvalid")
+            smalPassword.classList.add("mdpvalid")
+            return true
+        } else {
+            smalPassword.innerHTML = msg
+            smalPassword.classList.remove("mdpvalid")
+            smalPassword.classList.add("mdpInvalid")
+            return false
+        }
+    }
+    //--------------  Valider les infos avant envoie du form ------------
+form.addEventListener("submit", function(e) {
+    e.preventDefault()
+    if (validEmail(form.email) && validPassword(form.password)) {
+        form.submit()
     } else {
-        msg = "Le mot de passe est valide"
-        val = true
-
+        alert("Veuillez bien saisir le formulaire")
+        window.location = "index.html"
     }
-    let smalPassword = form.password.nextElementSibling;
-    let valid = `<i class="fas fa-check-circle"></i>`
-    if (val) {
-        smalPassword.innerHTML = valid
-        smalPassword.classList.remove("mdpInvalid")
-        smalPassword.classList.add("mdpvalid")
-        return true
-    } else {
-        smalPassword.innerHTML = msg
-        smalPassword.classList.remove("mdpvalid")
-        smalPassword.classList.add("mdpInvalid")
-        return false
-    }
-}
+})
