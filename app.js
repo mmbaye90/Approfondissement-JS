@@ -294,81 +294,122 @@
 // })
 
 // ------------------------------------------- RegExp -------------------------------------------------------------------
-const form = document.getElementById("loginform");
-// ------- control MAil --------
-form.email.addEventListener("change", function() {
-    validEmail(this)
-})
-let smal = form.email.nextElementSibling;
+// const form = document.getElementById("loginform");
+// // ------- control MAil --------
+// form.email.addEventListener("change", function() {
+//     validEmail(this)
+// })
+// let smal = form.email.nextElementSibling;
 
-const validEmail = function(inputEmail) {
-        let regexEmail = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-        if (regexEmail.test(inputEmail.value)) {
-            smal.classList.remove("refus");
-            smal.classList.add("validate");
-            let valid = `<i class="fas fa-check-circle"></i>`
-            smal.innerHTML = valid
-            return true
-        } else {
-            smal.classList.add("validate");
-            smal.classList.add("refus");
-            let refus = `<i class="fas fa-check-circle"></i>`
-            smal.innerHTML = refus
-            return false
-        }
-    }
-    //  ------- control Password --------
-form.password.addEventListener("change", function() {
-    validPassword(this)
-})
+// const validEmail = function(inputEmail) {
+//         let regexEmail = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+//         if (regexEmail.test(inputEmail.value)) {
+//             smal.classList.remove("refus");
+//             smal.classList.add("validate");
+//             let valid = `<i class="fas fa-check-circle"></i>`
+//             smal.innerHTML = valid
+//             return true
+//         } else {
+//             smal.classList.add("validate");
+//             smal.classList.add("refus");
+//             let refus = `<i class="fas fa-check-circle"></i>`
+//             smal.innerHTML = refus
+//             return false
+//         }
+//     }
+//  ------- control Password --------
+// form.password.addEventListener("change", function() {
+//     validPassword(this)
+// })
 
-const validPassword = function(inputPassword) {
-        let msg
-        let val = false;
-        //Au moins 3 caracteres
-        if (inputPassword.value.length < 3) {
-            msg = "Le mot de passe doit contenir au moins 3 caracteres"
-        }
-        //Au mos 1 Maj
-        else if (!/[A-Z]/.test(inputPassword.value)) {
-            msg = "Le mot de passe doit contenir au moins 1 maj"
+// const validPassword = function(inputPassword) {
+//         let msg
+//         let val = false;
+//         //Au moins 3 caracteres
+//         if (inputPassword.value.length < 3) {
+//             msg = "Le mot de passe doit contenir au moins 3 caracteres"
+//         }
+//         //Au mos 1 Maj
+//         else if (!/[A-Z]/.test(inputPassword.value)) {
+//             msg = "Le mot de passe doit contenir au moins 1 maj"
 
-        }
-        //Au Moins 1 miniscule
-        else if (!/[a-z]/.test(inputPassword.value)) {
-            msg = "Le mot de passe doit contenir au moins 1 min"
+//         }
+//         //Au Moins 1 miniscule
+//         else if (!/[a-z]/.test(inputPassword.value)) {
+//             msg = "Le mot de passe doit contenir au moins 1 min"
 
-        }
-        //Au moins un chiffre
-        else if (!/[0-9]/.test(inputPassword.value)) {
-            msg = "Le mot de passe doit contenir au moins 1 chiffre"
+//         }
+//         //Au moins un chiffre
+//         else if (!/[0-9]/.test(inputPassword.value)) {
+//             msg = "Le mot de passe doit contenir au moins 1 chiffre"
 
-        } else {
-            msg = "Le mot de passe est valide"
-            val = true
+//         } else {
+//             msg = "Le mot de passe est valide"
+//             val = true
 
-        }
-        let smalPassword = form.password.nextElementSibling;
-        let valid = `<i class="fas fa-check-circle"></i>`
-        if (val) {
-            smalPassword.innerHTML = valid
-            smalPassword.classList.remove("mdpInvalid")
-            smalPassword.classList.add("mdpvalid")
-            return true
-        } else {
-            smalPassword.innerHTML = msg
-            smalPassword.classList.remove("mdpvalid")
-            smalPassword.classList.add("mdpInvalid")
-            return false
-        }
-    }
-    //--------------  Valider les infos avant envoie du form ------------
-form.addEventListener("submit", function(e) {
-    e.preventDefault()
-    if (validEmail(form.email) && validPassword(form.password)) {
-        form.submit()
-    } else {
-        alert("Veuillez bien saisir le formulaire")
-        window.location = "index.html"
+//         }
+//         let smalPassword = form.password.nextElementSibling;
+//         let valid = `<i class="fas fa-check-circle"></i>`
+//         if (val) {
+//             smalPassword.innerHTML = valid
+//             smalPassword.classList.remove("mdpInvalid")
+//             smalPassword.classList.add("mdpvalid")
+//             return true
+//         } else {
+//             smalPassword.innerHTML = msg
+//             smalPassword.classList.remove("mdpvalid")
+//             smalPassword.classList.add("mdpInvalid")
+//             return false
+//         }
+//     }
+//--------------  Valider les infos avant envoie du form ------------
+// form.addEventListener("submit", function(e) {
+//     e.preventDefault()
+//     if (validEmail(form.email) && validPassword(form.password)) {
+//         form.submit()
+//     } else {
+//         alert("Veuillez bien saisir le formulaire")
+//         window.location = "index.html"
+//     }
+// })
+
+
+
+// const longestWord = (str) => {
+//     const splitStr = str.split(' ');
+//     const strLength = splitStr.map(string => string.length);
+//     console.log(Math.max(...strLength));
+// };
+// let mot = "Js c'est top complexe"
+// longestWord(mot)
+// const longMot = function(s) {
+//     let motSplite = s.split(" ")
+//     let tab = []
+//     for (let k = 0; k < motSplite.length; k++) {
+//         tab.push(motSplite[k].length)
+//     }
+//     console.log(Math.max(...tab))
+
+
+// }
+// let mot = "Je suis nullllllllllccccccccccccccl"
+// longMot(mot)
+
+///////////////////////////////////////////  API fetch /////////////////////////////////////////////////////
+
+document.getElementById("cp").addEventListener("input", function() {
+    if (this.value.length == 5) {
+        let url = `https://geo.api.gouv.fr/communes?codePostal=${this.value}`
+        fetch(url)
+            .then(res => res.json()
+                .then(datas => {
+                    let affiche = `<ul>`
+                    datas.forEach(element => {
+                        affiche += `<li><strong>${element.nom}</strong> : ${element.population} HBTS</li>`
+                    })
+                    affiche += `</ul>`
+                    document.getElementById("liste").innerHTML = affiche
+                })
+                .catch(err => console.log(err)))
     }
 })
