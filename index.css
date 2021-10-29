@@ -60,7 +60,8 @@
 
 /* ------------------------------------------- Control formulaire ---------------------------------- */
 
-.form {
+
+/* .form {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -76,9 +77,10 @@
     padding: 0.2rem;
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
-}
+} */
 
-.form .form-group .submit {
+
+/* .form .form-group .submit {
     display: block;
     width: 100%;
     padding: 0.2rem;
@@ -87,4 +89,4 @@
     cursor: pointer;
     color: white;
     margin-top: 0.5rem;
-}
+} */

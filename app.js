@@ -395,21 +395,4 @@
 // let mot = "Je suis nullllllllllccccccccccccccl"
 // longMot(mot)
 
-///////////////////////////////////////////  API fetch /////////////////////////////////////////////////////
-
-document.getElementById("cp").addEventListener("input", function() {
-    if (this.value.length == 5) {
-        let url = `https://geo.api.gouv.fr/communes?codePostal=${this.value}`
-        fetch(url)
-            .then(res => res.json()
-                .then(datas => {
-                    let affiche = `<ul>`
-                    datas.forEach(element => {
-                        affiche += `<li><strong>${element.nom}</strong> : ${element.population} HBTS</li>`
-                    })
-                    affiche += `</ul>`
-                    document.getElementById("liste").innerHTML = affiche
-                })
-                .catch(err => console.log(err)))
-    }
-})
+///////////////////////////////////////////  API fetch ////////////////////////////////////////////////

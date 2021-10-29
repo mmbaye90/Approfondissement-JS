@@ -84,32 +84,49 @@
 </head>
 
 <body>
-    <div class="form">
+    <div id="contener-form">
+        <h1>API METEO</h1>
+        <div id="contener-form-btn">
+            <form id="form-group" action="" method="POST">
+                <label for="ville">ville</label>
+                <input type="text" name="ville">
+            </form>
+            <button type="submit" class="btn">Chercher</button>
+        </div>
+    </div>
+    <div id="contener-results">
+        <div id="town"> town</div>
+        <div id="temp">temp</div>
+        <div id="vent">vent</div>
+        <div id="humidity">humidity</div>
+    </div>
+    <!-- <div class="form">
         <h1>API</h1>
         <form action="" method="POST" id="loginform">
-            <!-- ---- Email ------- -->
-            <div class="form-group">
+            <! ---- Email ------- -->
+    <!-- <div class="form-group">
                 <label for="ville">ville</label>
 
                 <input type="text" name="ville" class="form-control" id="cp" maxlength="5">
                 <div id="liste"></div>
-                <!-- <small></small> -->
-            </div>
+                <!- <small></small> -->
+    <!-- </div>
+            <div class="form-group">
+                <button type="submit" class="submit">Chercher</button>
+            </div>  -->
 
-            <!-- --------- Password ------------->
-            <!-- <div class="form-group">
+    <!-- --------- Password ------------->
+    <!-- <div class="form-group">
             <label for="password">Password</label>
 
             <input type="text" name="password" class="form-control">
             <small></small>
 
         </div>
-        <div class="form-group">
-            <button type="submit" class="submit">Connexion</button>
-        </div> -->
+    
         </form>
-    </div>
-    <!-- -------------------------------- Galerie Photo dynamique ---------------------------------------- -->
+    <!</div> -->
+    <!-- -------------------------------- Galerie Photo dynamique ---------------------------------------- -- -->
     <!-- <div id="contenair">
         <h1>Galerie Photo dynamique</h1>
         <div id="item-contener-photofleche">
@@ -220,6 +237,8 @@
     </p> -->
     <!-- <div id="util"></div>
     <div id="act"></div> -->
+
+
 
     <script src="./index.js"></script>
     <script src="./users.js"></script>
