@@ -25,6 +25,8 @@
         
         body {
             background-color: #f1f1f1;
+            margin: 0;
+            padding: 0;
         }
         /*         
         #container {
@@ -84,22 +86,22 @@
 </head>
 
 <body>
-    <div id="contener-form">
+    <div id="contener-form-h1-contnerresult">
         <h1>API METEO</h1>
         <div id="contener-form-btn">
             <form id="form-group" action="" method="POST">
-                <label for="ville">ville</label>
-                <input type="text" name="ville">
+                <input type="text" name="ville" placeholder="ville">
             </form>
             <button type="submit" class="btn">Chercher</button>
         </div>
+        <div id="contener-results">
+            <div id="town"></div>
+            <div id="temp"></div>
+            <div id="vent"></div>
+            <div id="humidity"></div>
+        </div>
     </div>
-    <div id="contener-results">
-        <div id="town"> town</div>
-        <div id="temp">temp</div>
-        <div id="vent">vent</div>
-        <div id="humidity">humidity</div>
-    </div>
+
     <!-- <div class="form">
         <h1>API</h1>
         <form action="" method="POST" id="loginform">

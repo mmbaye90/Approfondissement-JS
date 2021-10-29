@@ -90,3 +90,92 @@
     color: white;
     margin-top: 0.5rem;
 } */
+
+
+/* //////////////////////////////////////////  API METEO //////////////////////////////////////////////// */
+
+#contener-form-h1-contnerresult {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+#contener-form-h1-contnerresult #contener-form-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#contener-form-h1-contnerresult #contener-form-btn form {
+    width: 400px;
+}
+
+#contener-form-h1-contnerresult #contener-form-btn form input {
+    width: 100%;
+    padding: 0.4rem;
+}
+
+#contener-form-h1-contnerresult #contener-form-btn .btn {
+    padding: 0.4rem;
+    width: 100%;
+    margin-top: -0.5rem;
+    border: none;
+    background-color: rgba(0, 132, 255, 0.993);
+    color: white;
+    cursor: pointer;
+}
+
+#contener-form-h1-contnerresult #contener-results {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: red;
+    width: 400px;
+    margin-top: 1rem;
+}
+
+#contener-form-h1-contnerresult #contener-results #town,
+#contener-form-h1-contnerresult #contener-results #temp,
+#contener-form-h1-contnerresult #contener-results #vent,
+#contener-form-h1-contnerresult #contener-results #humidity {
+    width: 200px;
+    height: 200px;
+}
+
+#contener-form-h1-contnerresult #contener-results #town {
+    background-color: rgb(132, 158, 235);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#contener-form-h1-contnerresult #contener-results #temp {
+    background-color: rgba(68, 68, 207, 0.767);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#contener-form-h1-contnerresult #contener-results #vent {
+    background-color: rgb(180, 169, 169);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#contener-form-h1-contnerresult #contener-results #humidity {
+    background-color: turquoise;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
