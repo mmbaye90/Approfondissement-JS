@@ -131,7 +131,6 @@
 #contener-form-h1-contnerresult #contener-results {
     display: flex;
     flex-wrap: wrap;
-    background-color: red;
     width: 400px;
     margin-top: 1rem;
 }
@@ -142,40 +141,26 @@
 #contener-form-h1-contnerresult #contener-results #humidity {
     width: 200px;
     height: 200px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
 }
 
 #contener-form-h1-contnerresult #contener-results #town {
     background-color: rgb(132, 158, 235);
-    color: white;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
 }
 
 #contener-form-h1-contnerresult #contener-results #temp {
     background-color: rgba(68, 68, 207, 0.767);
-    color: white;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
 }
 
 #contener-form-h1-contnerresult #contener-results #vent {
     background-color: rgb(180, 169, 169);
-    color: white;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
 }
 
 #contener-form-h1-contnerresult #contener-results #humidity {
     background-color: turquoise;
-    color: white;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
 }
