@@ -397,25 +397,47 @@
 
 ///////////////////////////////////////////  API METEO ////////////////////////////////////////////////
 const apiKey = "8c2c1dc972a910e174bdce770934f494";
-let url = `https://api.openweathermap.org/data/2.5/weather?q=Paris&appid=${apiKey}&units=metric&lang=fr`;
-fetch(url)
-    .then(
-        res => res.json()
-        .then(datas => {
-            console.log("-------------- Retour données API ---------------")
-            console.log(datas)
-            let town = document.getElementById("town")
-            town.innerHTML = datas.name
+const appelApi = function(v) {
 
-            let temp = document.getElementById("temp")
-            let icon = `<i class="fas fa-thermometer-three-quarters"></i>`
-            temp.innerHTML = icon + datas.main.temp + "°"
-            let vent = document.getElementById("vent")
-            let iconVent = `<i class="fas fa-wind"></i>`
-            vent.innerHTML = iconVent + datas.wind.speed + " KM/H"
-            let humidity = document.getElementById("humidity")
-            let iconHumidity = `<i class="fas fa-tint"></i>`
-            humidity.innerHTML = iconHumidity + datas.main.humidity + " %"
-        })
-        .catch(err => console.log(err))
-    )
+    let url = `https://api.openweathermap.org/data/2.5/weather?q=${v}&appid=${apiKey}&units=metric&lang=fr`;
+    fetch(url)
+        .then(
+            res => res.json()
+            .then(datas => {
+
+                let town = document.getElementById("town")
+                town.innerHTML = datas.name
+
+                let temp = document.getElementById("temp")
+                let icon = `<i class="fas fa-thermometer-three-quarters"></i>`
+                temp.innerHTML = icon + datas.main.temp + "°"
+                let vent = document.getElementById("vent")
+                let iconVent = `<i class="fas fa-wind"></i>`
+                vent.innerHTML = iconVent + datas.wind.speed + " KM/H"
+                let humidity = document.getElementById("humidity")
+                let iconHumidity = `<i class="fas fa-tint"></i>`
+                humidity.innerHTML = iconHumidity + datas.main.humidity + " %";
+
+
+
+            })
+            .catch(err => {
+                window.location = "index.html"
+            })
+
+        )
+}
+
+appelApi("paris")
+let form = document.getElementById("form-group")
+form.addEventListener("submit", function(e) {
+    e.preventDefault()
+    let inputUser = form.ville.value
+    let regexInput = /^[a-zA-Z]+(?:[\s-][a-zA-Z]+)*$/
+    if (regexInput.test(inputUser)) {
+        appelApi(inputUser)
+    }
+
+})
+
+//------------------------------------------ Appel avec saisie de l'utilisateur ---------------------------
