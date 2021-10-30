@@ -6,6 +6,8 @@
     <link rel="stylesheet" href="index.css" />
     <title>Galerie photo dynamique</title>
     <script src="https://kit.fontawesome.com/4022f26dc0.js" crossorigin="anonymous"></script>
+
+
     <style>
         /* .citation {
             font-size: italic;
@@ -66,8 +68,7 @@
         #container>div.active {
             display: block;
         } */
-        
-        .form #loginform .validate {
+        /* .form #loginform .validate {
             color: rgba(46, 255, 9, 0.931);
         }
         
@@ -81,12 +82,22 @@
         
         .mdpInvalid {
             color: red;
-        }
+        } */
     </style>
 </head>
 
 <body>
-    <div id="contener-form-h1-contnerresult">
+    <section id="bloc-global">
+        <h1><span id="ville">Paris</span>
+            <span id="tootl-tip">Veuillez saisir votre ville</span>
+        </h1>
+        <span id="icone"><i class="fas fa-cloud-sun-rain"></i></span>
+        <h2><span id="temperature"> 30 C° (<span id="conditions">ciel couvert</span>)</span>
+        </h2>
+    </section>
+
+    <!-- ///////////////////////// API METEO1 ///////////////////////////////// -->
+    <!-- <div id="contener-form-h1-contnerresult">
         <h1>API METEO</h1>
         <div id="contener-form-btn">
             <form id="form-group" action="" method="POST">
@@ -101,7 +112,7 @@
             <div id="vent"></div>
             <div id="humidity"></div>
         </div>
-    </div>
+    </div> -->
 
     <!-- <div class="form">
         <h1>API</h1>

@@ -170,3 +170,23 @@
 #contener-form-h1-contnerresult #contener-results #humidity {
     background-color: turquoise;
 }
+
+
+/* ///////////////////////////// API METEO 2 /////////////////////////////////////////////// */
+
+#bloc-global {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    height: 100vh;
+}
+
+#bloc-global #tootl-tip {
+    display: none;
+}
+
+#bloc-global #icone {
+    font-size: 3rem;
+}
