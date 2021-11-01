@@ -441,3 +441,74 @@
 // })
 
 //------------------------------------------ Appel avec saisie de l'utilisateur ---------------------------
+let pluie = `<i class="fas fa-cloud-rain"></i>`; // Rain
+let nuage = `<i class="fas fa-cloud"></i>`; //Clouds
+let clair = `<i class="fas fa-sun"></i>`; //Clear
+let neige = `<i class="fas fa-snowflake"></i>`; // Snow
+let brouillard = `<i class="fas fa-smog"></i>`; //mist
+let pluieFine = `<i class="fas fa-cloud-showers-heavy"></i>`; //Drizzle
+let apikey = "a14abbd0-3a47-11ec-84d7-03f1a2529588";
+let apikeyMet = "8c2c1dc972a910e174bdce770934f494";
+
+const main = async function(avecIp = true) {
+    let ville
+    if (avecIp) {
+        const ip = await fetch("https://api.ipify.org?format=json")
+            .then(res => res.json())
+            .then(datas => datas.ip)
+        ville = await fetch(`https://api.freegeoip.app/json/${ip}?apikey=a14abbd0-3a47-11ec-84d7-03f1a2529588`)
+            .then(res => res.json())
+            .then(datas => datas.city)
+    } else {
+        ville = document.getElementById("ville").textContent;
+
+    }
+
+    const meteo = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${ville}&appid=${apikeyMet}&units=metric&lang=fr`)
+        .then(res => res.json())
+        .then(datas => datas)
+        .catch((err) => {
+            alert("vee")
+            window.location = "index.html"
+        })
+
+    display(meteo)
+
+}
+const display = function(data) {
+    let temperature = data.main.temp;
+    let conditions = data.weather[0].main;
+    let descriptions = data.weather[0].description;
+    document.getElementById("temperature").textContent = Math.round(temperature) + " C°";
+    document.querySelector("h2 #descrip").textContent = descriptions;
+    document.querySelector("body").classList.add(conditions.toLowerCase())
+    if (conditions === "Rain") {
+
+    } else if (conditions === "Rain") {
+        document.getElementById("icone").innerHTML = pluie
+    } else if (conditions === "Clouds") {
+        document.getElementById("icone").innerHTML = nuage
+    } else if (conditions === "Clear") {
+        document.getElementById("icone").innerHTML = clair
+    } else if (conditions === "Snow") {
+        document.getElementById("icone").innerHTML = neige
+    } else if (conditions === "Mist") {
+        document.getElementById("icone").innerHTML = brouillard
+    } else if (conditions === "Drizzle") {
+        document.getElementById("icone").innerHTML = pluieFine
+    }
+}
+
+const ville = document.getElementById("ville")
+ville.addEventListener("click", function() {
+    this.contentEditable = true
+})
+ville.addEventListener("keydown", function(e) {
+    if (e.keyCode === 13) {
+        e.preventDefault()
+        ville.contentEditable = false
+        main(false)
+    }
+})
+
+main()
