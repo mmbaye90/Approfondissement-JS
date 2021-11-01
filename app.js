@@ -451,28 +451,31 @@ let apikey = "a14abbd0-3a47-11ec-84d7-03f1a2529588";
 let apikeyMet = "8c2c1dc972a910e174bdce770934f494";
 
 const main = async function(avecIp = true) {
-    let ville
-    if (avecIp) {
-        const ip = await fetch("https://api.ipify.org?format=json")
-            .then(res => res.json())
-            .then(datas => datas.ip)
-        ville = await fetch(`https://api.freegeoip.app/json/${ip}?apikey=a14abbd0-3a47-11ec-84d7-03f1a2529588`)
-            .then(res => res.json())
-            .then(datas => datas.city)
-    } else {
-        ville = document.getElementById("ville").textContent;
+    try {
+        let ville
+        if (avecIp) {
+            const ip = await fetch("https://api.ipify.org?format=json")
+                .then(res => res.json())
+                .then(datas => datas.ip)
+            ville = await fetch(`https://api.freegeoip.app/json/${ip}?apikey=a14abbd0-3a47-11ec-84d7-03f1a2529588`)
+                .then(res => res.json())
+                .then(datas => datas.city)
+        } else {
+            ville = document.getElementById("ville").textContent;
 
+        }
+
+        const meteo = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${ville}&appid=${apikeyMet}&units=metric&lang=fr`)
+            .then(res => res.json())
+            .then(datas => datas)
+
+
+        display(meteo)
+    } catch (e) {
+        alert("Veuillez saisir une ville correcte")
+        window.location = "index.html"
     }
 
-    const meteo = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${ville}&appid=${apikeyMet}&units=metric&lang=fr`)
-        .then(res => res.json())
-        .then(datas => datas)
-        .catch((err) => {
-            alert("vee")
-            window.location = "index.html"
-        })
-
-    display(meteo)
 
 }
 const display = function(data) {
