@@ -180,7 +180,6 @@
     align-items: center;
     flex-direction: column;
     flex-wrap: wrap;
-    height: 100vh;
 }
 
 #bloc-global h1 {
